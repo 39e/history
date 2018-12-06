@@ -1,7 +1,5 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
 
-ZSH_HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND="bg=magenta,fg=white,bold"
-ZSH_HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND="bg=red,fg=white,bold"
 ZSH_HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS="i"
 
 #
@@ -41,11 +39,6 @@ if [[ $ZSH_HISTORY_CASE_SENSITIVE == true ]]; then
     unset ZSH_HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS
 fi
 
-if [[ $ZSH_HISTORY_DISABLE_COLOR == true ]]; then
-    unset ZSH_HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND
-    unset ZSH_HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND
-fi
-
 if [[ -z $ZSH_HISTORY_AUTO_SYNC ]]; then
     export ZSH_HISTORY_AUTO_SYNC=true
 fi
@@ -69,8 +62,7 @@ fi
 # Loading
 #
 
-for f in "${0:A:h}"/*.zsh(N-.)
-do
+for f in "${0:A:h}"/misc/*.zsh(N-.); do
     source "$f" 2>/dev/null
 done
 unset f

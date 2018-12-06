@@ -18,8 +18,8 @@ build: deps
 install: build
 	go install
 	if echo $$SHELL | grep "zsh" &>/dev/null; then \
-		install -m 644 ./misc/zsh/completions/_history $(shell zsh -c 'echo $$fpath[1]'); \
-		fi
+		install -m 644 ./misc/completions/_history $(shell zsh -c 'echo $$fpath[1]'); \
+	fi
 
 deps:
 	go get -d -v ./...
